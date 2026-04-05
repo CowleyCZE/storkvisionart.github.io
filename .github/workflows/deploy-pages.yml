@@ -30,7 +30,7 @@ jobs:
           if [ -f package.json ] && npm run | grep -q build; then npm run build; fi
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./
 
