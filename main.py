@@ -17,9 +17,14 @@ import os
 import sys
 from typing import Optional
 
-try:
-    from dotenv import load_dotenv
-except Exception:  # pragma: no cover - allow running without python-dotenv installed
+import importlib.util
+
+# Import `load_dotenv` only if the `python-dotenv` package is available.
+# Use a safe fallback when it's not installed to avoid runtime errors
+# and to suppress language-server missing-import diagnostics.
+if importlib.util.find_spec("dotenv") is not None:
+    from dotenv import load_dotenv  # type: ignore
+else:
     def load_dotenv() -> None:  # type: ignore[no-redef]
         """Fallback loader when `python-dotenv` is not available.
 
