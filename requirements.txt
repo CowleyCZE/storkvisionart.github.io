@@ -1,0 +1,7 @@
+requests
+requests-oauthlib
+python-dotenv
+flake8
+requests
+requests-oauthlib
+python-dotenv
